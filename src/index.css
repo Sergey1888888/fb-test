@@ -1,13 +1,155 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+    --primary: #afafaf;
+    --secondary: #282828;
+    --error: #952e2e;
+}
+
+/* base styles & title */
+body {
+    font-family: "Segoe UI", serif;
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+.App {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.title {
+    color: var(--primary);
+    padding: 1rem 0;
+}
+
+.title h2, .title p {
+    text-align: center;
+}
+
+.title p {
+    margin-top: 1rem;
+}
+
+.title h2 {
+    margin-top: 60px;
+    font-size: 2.6rem;
+}
+
+/* upload form styles */
+form {
+    margin: 30px auto 10px;
+    text-align: center;
+}
+
+label input {
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+
+label {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--primary);
+    border-radius: 50%;
+    margin: 10px auto;
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+label:hover {
+    background: var(--primary);
+    color: var(--secondary);
+}
+
+.output {
+    height: 60px;
+    font-size: 1rem;
+}
+
+.error {
+    color: var(--error);
+}
+
+/* progress bar styles */
+.progress-bar {
+    height: 5px;
+    background: var(--primary);
+    margin-top: 20px;
+}
+
+.progress[value] {
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.5rem;
+}
+
+.progress::-webkit-progress-bar {
+    background-color: transparent;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+.progress[value]::-webkit-progress-value {
+    background: rgb(186, 27, 27);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+/* image grid styles */
+.img-grid {
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px;
+}
+
+.img-wrap {
+    overflow: hidden;
+    height: 0;
+    padding: 50% 0;
+    position: relative;
+    opacity: 0.8;
+}
+
+.img-wrap img {
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 150%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* modal styles */
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.backdrop img {
+    display: block;
+    max-width: 60%;
+    max-height: 80%;
+    margin: 60px auto;
+    box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
+    border: 3px solid var(--primary);
 }
